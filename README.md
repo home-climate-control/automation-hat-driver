@@ -13,7 +13,7 @@ This is the Java driver for the [Pimoroni Automation HAT](https://learn.pimoroni
 
 ## What for?
 
-The primary driver behind this project (and its predecessor, [mqtt-automation-hat-go](github.com/climategadgets/mqtt-automation-hat-go) is the [Home Climate Control](https://github.com/home-climate-control/dz) project.
+The primary driver behind this project (and its predecessor, [mqtt-automation-hat-go](https://github.com//climategadgets/mqtt-automation-hat-go) is the [Home Climate Control](https://github.com/home-climate-control/dz) project.
 
 ## How?
 
