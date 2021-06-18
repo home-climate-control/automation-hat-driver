@@ -129,11 +129,19 @@ class PimoroniAutomationHatTest {
 
             AutomationHAT hat = PimoroniAutomationHAT.getInstance();
 
-            hat.status().power().write(true);
-            hat.status().comms().write(true);
-            hat.status().warn().write(true);
+            // Let's stagger them so the color of each is obvious
 
-            Thread.sleep(1000); // NOSONAR Not worth the effort
+            // Green
+            hat.status().power().write(true);
+            Thread.sleep(500); // NOSONAR Not worth the effort
+
+            // Blue
+            hat.status().comms().write(true);
+            Thread.sleep(500); // NOSONAR Not worth the effort
+
+            // Red
+            hat.status().warn().write(true);
+            Thread.sleep(500); // NOSONAR Not worth the effort
 
         }).doesNotThrowAnyException();
     }
