@@ -44,7 +44,7 @@ class PimoroniAutomationHatTest {
         assertThat(hat.relay().get(0).write(true)).isTrue();
         logger.info("wrote 1");
 
-        Thread.sleep(100);
+        Thread.sleep(100); // NOSONAR Not worth the effort
 
         assertThat(hat.relay().get(0).write(false)).isTrue();
         logger.info("wrote 0");
@@ -82,7 +82,7 @@ class PimoroniAutomationHatTest {
             assertThat(hat.relay().get(1).read().get()).isTrue();
             assertThat(hat.relay().get(2).read().get()).isTrue();
 
-            Thread.sleep(1000);
+            Thread.sleep(1000); // NOSONAR Not worth the effort
 
             logger.info("setting all relays to OFF");
 
@@ -116,7 +116,7 @@ class PimoroniAutomationHatTest {
             hat.output().get(1).write(true);
             hat.output().get(2).write(true);
 
-            Thread.sleep(1000);
+            Thread.sleep(1000); // NOSONAR Not worth the effort
 
         }).doesNotThrowAnyException();
     }
@@ -133,7 +133,7 @@ class PimoroniAutomationHatTest {
             hat.status().comms().write(true);
             hat.status().warn().write(true);
 
-            Thread.sleep(1000);
+            Thread.sleep(1000); // NOSONAR Not worth the effort
 
         }).doesNotThrowAnyException();
     }

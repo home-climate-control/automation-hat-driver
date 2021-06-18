@@ -10,7 +10,6 @@ import com.homeclimatecontrol.autohat.Status;
 import com.homeclimatecontrol.autohat.Writer;
 import com.homeclimatecontrol.autohat.base.StatusImpl;
 import com.homeclimatecontrol.sn3218.SN3218;
-import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.RaspiGpioProvider;
 import com.pi4j.io.gpio.RaspiPinNumberingScheme;
@@ -50,10 +49,10 @@ public class PimoroniAutomationHAT implements AutomationHAT {
 
     private PimoroniAutomationHAT() throws IOException {
 
-        GpioController gpio = GpioFactory.getInstance();
+        var gpio = GpioFactory.getInstance();
         GpioFactory.setDefaultProvider(new RaspiGpioProvider(RaspiPinNumberingScheme.BROADCOM_PIN_NUMBERING));
 
-        SN3218 sn3218 = SN3218.getInstance();
+        var sn3218 = SN3218.getInstance();
         sn3218.enable(true);
         sn3218.enableLEDs(SN3218.ALL_LEDS);
 

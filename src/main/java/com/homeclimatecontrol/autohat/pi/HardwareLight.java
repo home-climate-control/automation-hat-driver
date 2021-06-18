@@ -33,6 +33,11 @@ public class HardwareLight extends AbstractWriter<Boolean> implements Light {
     @Override
     public void hardwareWrite(Boolean value) throws IOException {
 
+        if (value == null) {
+            // The only reason it is Boolean and not boolean is generics
+            throw new IllegalArgumentException("value can't be null");
+        }
+
         // It is assumed that SN3218 is already initialized and all LEDs are enabled
         SN3218.getInstance().setLED(pin, value ? intensity : 0);
     }

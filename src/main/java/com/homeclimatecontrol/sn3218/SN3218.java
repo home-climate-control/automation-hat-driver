@@ -34,7 +34,7 @@ public class SN3218 implements AutoCloseable {
      */
     public static final int ALL_LEDS = 0x3FFFF;
 
-    interface Command {
+    interface Command { // NOSONAR Consequences have been considered.
         byte ENABLE_OUTPUT = (byte) 0x00;
         byte SET_PWM_VALUES = (byte) 0x01;
         byte ENABLE_LEDS = (byte) 0x13;
