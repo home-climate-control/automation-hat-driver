@@ -47,17 +47,17 @@ class SN3218Test {
 
             for (var channel = 0; channel < SN3218.LED_COUNT; channel++) {
                 sn3218.setLED(channel, intensity);
-                Thread.sleep(10);
+                Thread.sleep(10); // NOSONAR Not worth the effort
             }
 
-            Thread.sleep(400);
+            Thread.sleep(400); // NOSONAR Not worth the effort
 
             for (var channel = 0; channel < SN3218.LED_COUNT; channel++) {
                 sn3218.setLED(channel, (byte) 0);
-                Thread.sleep(10);
+                Thread.sleep(10); // NOSONAR Not worth the effort
             }
 
-            Thread.sleep(100);
+            Thread.sleep(100); // NOSONAR Not worth the effort
 
         }).doesNotThrowAnyException();
     }
@@ -81,10 +81,10 @@ class SN3218Test {
                 }
 
                 sn3218.output(values);
-                Thread.sleep(2);
+                Thread.sleep(2); // NOSONAR Not worth the effort
             }
 
-            Thread.sleep(400);
+            Thread.sleep(400); // NOSONAR Not worth the effort
 
             for (var intensity = max; intensity >= 0; intensity--) {
 
@@ -93,10 +93,10 @@ class SN3218Test {
                 }
 
                 sn3218.output(values);
-                Thread.sleep(2);
+                Thread.sleep(2); // NOSONAR Not worth the effort
             }
 
-            Thread.sleep(100);
+            Thread.sleep(100); // NOSONAR Not worth the effort
 
         }).doesNotThrowAnyException();
     }
