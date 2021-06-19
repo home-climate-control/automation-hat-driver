@@ -112,6 +112,8 @@ class PimoroniAutomationHatTest {
 
             AutomationHAT hat = PimoroniAutomationHAT.getInstance();
 
+            // This will also turn outputs' lights on
+
             hat.output().get(0).write(true);
             hat.output().get(1).write(true);
             hat.output().get(2).write(true);
@@ -148,6 +150,85 @@ class PimoroniAutomationHatTest {
 
     @Test
     @Order(5)
+    void intensity() {
+
+        assertThatCode(() -> {
+
+            AutomationHAT hat = PimoroniAutomationHAT.getInstance();
+
+            var dim = 0.02;
+            var bright = 0.2;
+
+            // Dim the status lights
+            hat.status().power().intensity().write(dim);
+            hat.status().comms().intensity().write(dim);
+            hat.status().warn().intensity().write(dim);
+
+            // Turn off the long row of lights so that we can set the intensity without blinding the user
+
+            lights(hat, false);
+
+            // Set the intensity of the long row of lights so that the contrast is obvious
+
+            hat.adc24().get(0).light().intensity().write(dim);
+            hat.adc24().get(1).light().intensity().write(dim);
+            hat.adc24().get(2).light().intensity().write(dim);
+
+            hat.output().get(0).light().intensity().write(bright);
+            hat.output().get(1).light().intensity().write(bright);
+            hat.output().get(2).light().intensity().write(bright);
+
+            hat.input().get(0).light().intensity().write(dim);
+            hat.input().get(1).light().intensity().write(dim);
+            hat.input().get(2).light().intensity().write(dim);
+
+            // Now turn them on
+
+            lights(hat, true);
+            logger.info("turned side lights on");
+            Thread.sleep(1000); // NOSONAR Not worth the effort
+
+            // And now reverse it
+
+            hat.adc24().get(0).light().intensity().write(bright);
+            hat.adc24().get(1).light().intensity().write(bright);
+            hat.adc24().get(2).light().intensity().write(bright);
+
+            hat.output().get(0).light().intensity().write(dim);
+            hat.output().get(1).light().intensity().write(dim);
+            hat.output().get(2).light().intensity().write(dim);
+
+            hat.input().get(0).light().intensity().write(bright);
+            hat.input().get(1).light().intensity().write(bright);
+            hat.input().get(2).light().intensity().write(bright);
+
+            logger.info("flipped side lights' intensity");
+            Thread.sleep(1000); // NOSONAR Not worth the effort
+
+            // Turn them off again
+            lights(hat, false);
+            logger.info("turned side lights off");
+
+        }).doesNotThrowAnyException();
+    }
+
+    private void lights(AutomationHAT hat, boolean value) throws IOException {
+
+        hat.adc24().get(0).light().write(value);
+        hat.adc24().get(1).light().write(value);
+        hat.adc24().get(2).light().write(value);
+
+        hat.output().get(0).light().write(value);
+        hat.output().get(1).light().write(value);
+        hat.output().get(2).light().write(value);
+
+        hat.input().get(0).light().write(value);
+        hat.input().get(1).light().write(value);
+        hat.input().get(2).light().write(value);
+    }
+
+    @Test
+    @Order(6)
     @EnabledIfEnvironmentVariable(
             named = "DZ_TEST_HAT",
             matches = "safe",

@@ -6,6 +6,7 @@ import com.homeclimatecontrol.autohat.base.AbstractWriter;
 import com.homeclimatecontrol.sn3218.SN3218;
 
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * Hardware driver for controlling Pimoroni Automation HAT onboard lights.
@@ -21,13 +22,39 @@ public class HardwareLight extends AbstractWriter<Boolean> implements Light {
      */
     private byte intensity = (byte) 0x22;
 
+    private Boolean lastValue = null;
+
     public HardwareLight(int pin) {
         super(pin);
     }
 
     @Override
     public Writer<Double> intensity() {
-        throw new IllegalStateException("Not Implemented");
+        return new Writer<Double>() {
+
+            @Override
+            public boolean write(Double value) throws IOException {
+                if (value < 0 || value > 1) {
+                    throw new IllegalArgumentException("intensity value should be in 0..1 range (" + value + " given)");
+                }
+
+                var newIntensity = (byte) (0xFF * value);
+                var changed = newIntensity == intensity;
+
+                intensity = newIntensity;
+
+                if (lastValue != null) {
+                    hardwareWrite(lastValue);
+                }
+
+                return changed;
+            }
+
+            @Override
+            public Optional<Double> read() throws IOException {
+                return Optional.of((double) intensity / 0xFF);
+            }
+        };
     }
 
     @Override
@@ -40,5 +67,7 @@ public class HardwareLight extends AbstractWriter<Boolean> implements Light {
 
         // It is assumed that SN3218 is already initialized and all LEDs are enabled
         SN3218.getInstance().setLED(pin, value ? intensity : 0);
+
+        lastValue = value;
     }
 }
