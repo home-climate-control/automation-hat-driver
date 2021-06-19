@@ -27,5 +27,5 @@ public interface AutomationHAT extends AutoCloseable {
      * For simplicity, if any individual LED intensity is changed afterwards via {@link Light#intensity()}, the value
      * returned by this reader is unaffected.
      */
-    Writer<Boolean> intensity();
+    Writer<Double> intensity();
 }
