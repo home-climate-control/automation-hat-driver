@@ -3,6 +3,7 @@ package com.homeclimatecontrol.sn3218;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 
 import java.io.IOException;
@@ -14,6 +15,11 @@ import static org.assertj.core.api.Assertions.assertThatCode;
  */
 @EnabledIfSystemProperty(named = "java.vm.vendor", matches = "Raspbian", disabledReason = "Not Raspberry Pi?")
 @EnabledIfSystemProperty(named = "os.arch", matches = "arm", disabledReason = "Not Raspberry Pi?")
+@EnabledIfEnvironmentVariable(
+        named = "TEST_AUTOMATION_HAT",
+        matches = "safe",
+        disabledReason = "Only execute this test if there is no sensitive hardware connected"
+)
 class SN3218Test {
 
     private static SN3218 sn3218;

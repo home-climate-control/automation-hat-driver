@@ -23,17 +23,17 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 @EnabledIfSystemProperty(named = "java.vm.vendor", matches = "Raspbian", disabledReason = "Not Raspberry Pi?")
 @EnabledIfSystemProperty(named = "os.arch", matches = "arm", disabledReason = "Not Raspberry Pi?")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@EnabledIfEnvironmentVariable(
+        named = "TEST_AUTOMATION_HAT",
+        matches = "safe",
+        disabledReason = "Only execute this test if there is no sensitive hardware connected"
+)
 class PimoroniAutomationHatTest {
 
     private final Logger logger = LogManager.getLogger();
 
     @Test
     @Order(1)
-    @EnabledIfEnvironmentVariable(
-            named = "DZ_TEST_HAT",
-            matches = "safe",
-            disabledReason = "Only execute this test if there is no sensitive hardware connected"
-    )
     void changeRelayState() throws IOException, InterruptedException {
 
         AutomationHAT hat = PimoroniAutomationHAT.getInstance();
@@ -61,11 +61,6 @@ class PimoroniAutomationHatTest {
      */
     @Test
     @Order(2)
-    @EnabledIfEnvironmentVariable(
-            named = "DZ_TEST_HAT",
-            matches = "safe",
-            disabledReason = "Only execute this test if there is no sensitive hardware connected"
-    )
     void cycleRelays() throws IOException {
 
         assertThatCode(() -> {
@@ -101,11 +96,6 @@ class PimoroniAutomationHatTest {
 
     @Test
     @Order(3)
-    @EnabledIfEnvironmentVariable(
-            named = "DZ_TEST_HAT",
-            matches = "safe",
-            disabledReason = "Only execute this test if there is no sensitive hardware connected"
-    )
     void setOutputs() {
 
         assertThatCode(() -> {
@@ -229,11 +219,6 @@ class PimoroniAutomationHatTest {
 
     @Test
     @Order(6)
-    @EnabledIfEnvironmentVariable(
-            named = "DZ_TEST_HAT",
-            matches = "safe",
-            disabledReason = "Only execute this test if there is no sensitive hardware connected"
-    )
     void reset() {
 
         assertThatCode(() -> {
