@@ -1,9 +1,9 @@
 Pimoroni Automation HAT Java Driver
 ==
 
-[![Build Status](https://github.com/home-climate-control/automation-hat-driver/actions/workflows/gradle.yml/badge.svg)](https://github.com/home-climate-control/dz/actions/workflows/gradle.yml)
-[![Build Status](https://github.com/home-climate-control/automation-hat-driver/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/home-climate-control/dz/actions/workflows/codeql-analysis.yml)
-[![SonarCloud](https://github.com/home-climate-control/automation-hat-driver/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/home-climate-control/dz/actions/workflows/sonarcloud.yml)
+[![Build Status](https://github.com/home-climate-control/automation-hat-driver/actions/workflows/gradle.yml/badge.svg)](https://github.com/home-climate-control/automation-hat-driver/actions/workflows/gradle.yml)
+[![Build Status](https://github.com/home-climate-control/automation-hat-driver/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/home-climate-control/automation-hat-driver/actions/workflows/codeql-analysis.yml)
+[![SonarCloud](https://github.com/home-climate-control/automation-hat-driver/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/home-climate-control/automation-hat-driver/actions/workflows/sonarcloud.yml)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=home-climate-control_automation-hat-driver&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=home-climate-control_automation-hat-driver)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=home-climate-control_automation-hat-driver&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=home-climate-control_automation-hat-driver)
 
