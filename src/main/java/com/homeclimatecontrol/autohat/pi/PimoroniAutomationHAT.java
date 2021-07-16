@@ -120,7 +120,7 @@ public class PimoroniAutomationHAT implements AutomationHAT {
     }
 
     @Override
-    public Writer<Double> intensity() {
+    public Writer<Byte> intensity() {
         throw new IllegalStateException("Not Implemented");
     }
 

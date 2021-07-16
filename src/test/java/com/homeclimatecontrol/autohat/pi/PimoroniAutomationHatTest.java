@@ -146,8 +146,8 @@ class PimoroniAutomationHatTest {
 
             AutomationHAT hat = PimoroniAutomationHAT.getInstance();
 
-            var dim = 0.02;
-            var bright = 0.2;
+            Byte dim = 5;
+            Byte bright = 50;
 
             // Dim the status lights
             hat.status().power().intensity().write(dim);

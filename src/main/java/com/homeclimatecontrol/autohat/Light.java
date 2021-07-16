@@ -10,7 +10,7 @@ public interface Light extends Writer<Boolean> {
     /**
      * Control individual LED intensity.
      *
-     * @return Writer to control this LED intensity. {@code 0.0} is off, {@code 1.0} is full intensity (VERY bright).
+     * @return Writer to control this LED intensity. {@code 0} is off, {@code 255} is full intensity (VERY bright).
      */
-    Writer<Double> intensity();
+    Writer<Byte> intensity();
 }

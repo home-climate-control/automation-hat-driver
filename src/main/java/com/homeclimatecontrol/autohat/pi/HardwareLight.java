@@ -29,19 +29,15 @@ public class HardwareLight extends AbstractWriter<Boolean> implements Light {
     }
 
     @Override
-    public Writer<Double> intensity() {
-        return new Writer<Double>() {
+    public Writer<Byte> intensity() {
+        return new Writer<Byte>() {
 
             @Override
-            public boolean write(Double value) throws IOException {
-                if (value < 0 || value > 1) {
-                    throw new IllegalArgumentException("intensity value should be in 0..1 range (" + value + " given)");
-                }
+            public boolean write(Byte value) throws IOException {
 
-                var newIntensity = (byte) (0xFF * value);
-                var changed = newIntensity == intensity;
+                var changed = value == intensity;
 
-                intensity = newIntensity;
+                intensity = value;
 
                 if (lastValue != null) {
                     hardwareWrite(lastValue);
@@ -51,8 +47,8 @@ public class HardwareLight extends AbstractWriter<Boolean> implements Light {
             }
 
             @Override
-            public Optional<Double> read() throws IOException {
-                return Optional.of((double) intensity / 0xFF);
+            public Optional<Byte> read() throws IOException {
+                return Optional.of(intensity);
             }
         };
     }

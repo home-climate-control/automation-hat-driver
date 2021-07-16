@@ -23,9 +23,9 @@ public interface AutomationHAT extends AutoCloseable {
      *
      * This will override all individual intensity settings that may have been previously applied.
      *
-     * @return Writer to control this LED intensity. {@code 0.0} is off, {@code 1.0} is full intensity (VERY bright).
+     * @return Writer to control this LED intensity. {@code 0} is off, {@code 255} is full intensity (VERY bright).
      * For simplicity, if any individual LED intensity is changed afterwards via {@link Light#intensity()}, the value
      * returned by this reader is unaffected.
      */
-    Writer<Double> intensity();
+    Writer<Byte> intensity();
 }
