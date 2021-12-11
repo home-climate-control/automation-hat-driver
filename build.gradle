@@ -1,19 +1,19 @@
 plugins {
-    id 'net.ltgt.errorprone'
-    id 'org.sonarqube'
+    id "net.ltgt.errorprone"
+    id "org.sonarqube"
 }
 
-apply plugin: 'java-library'
-apply plugin: 'maven-publish'
-apply plugin: 'jacoco'
-apply plugin: 'net.ltgt.errorprone'
+apply plugin: "java-library"
+apply plugin: "maven-publish"
+apply plugin: "jacoco"
+apply plugin: "net.ltgt.errorprone"
 
 sourceCompatibility = 11
 targetCompatibility = 11
 
 
-group = 'com.homeclimatecontrol'
-version = '0.0.1-SNAPSHOT'
+group = "com.homeclimatecontrol"
+version = "0.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -22,17 +22,17 @@ repositories {
 
 dependencies {
 
-    implementation 'org.apache.logging.log4j:log4j-api:2.14.1'
-    implementation 'org.apache.logging.log4j:log4j-core:2.14.1'
+    implementation "org.apache.logging.log4j:log4j-api:2.14.1"
+    implementation "org.apache.logging.log4j:log4j-core:2.14.1"
 
-    implementation 'com.pi4j:pi4j-core:1.4'
+    implementation "com.pi4j:pi4j-core:1.4"
 
-    testImplementation 'org.mockito:mockito-core:4.1.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testImplementation('org.assertj:assertj-core:3.21.0')
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation "org.mockito:mockito-core:4.1.0"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.2"
+    testImplementation("org.assertj:assertj-core:3.21.0")
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.2"
 
-    errorprone 'com.google.errorprone:error_prone_core:2.10.0'
+    errorprone "com.google.errorprone:error_prone_core:2.10.0"
 }
 
 test {
