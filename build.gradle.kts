@@ -2,8 +2,8 @@ plugins {
     id("java-library")
     id("maven-publish")
     id("jacoco")
-    id("net.ltgt.errorprone") version "2.0.2"
-    id("org.sonarqube") version "3.3"
+    id("net.ltgt.errorprone")
+    id("org.sonarqube")
 }
 
 java {
