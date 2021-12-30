@@ -1,7 +1,8 @@
 plugins {
-    id("java-library")
-    id("maven-publish")
-    id("jacoco")
+    `version-catalog`
+    `java-library`
+    `maven-publish`
+    jacoco
     id("net.ltgt.errorprone")
     id("org.sonarqube")
 }
@@ -10,7 +11,6 @@ java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }
-
 
 group = "com.homeclimatecontrol"
 version = "0.0.1-SNAPSHOT"
@@ -22,18 +22,16 @@ repositories {
 
 dependencies {
 
-    implementation("org.apache.logging.log4j:log4j-api:2.17.0")
-    implementation("org.apache.logging.log4j:log4j-core:2.17.0")
+    implementation(libs.log4j2.api)
+    implementation(libs.log4j2.core)
+    implementation(libs.pi4j)
 
-    // Ignore IntelliJ nagging, v2.x is incompatible
-    implementation("com.pi4j:pi4j-core:1.4")
+    testImplementation(libs.mockito)
+    testImplementation(libs.junit.jupiter.api)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    testImplementation(libs.assertj)
 
-    testImplementation("org.mockito:mockito-core:4.2.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
-    testImplementation("org.assertj:assertj-core:3.21.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
-
-    errorprone("com.google.errorprone:error_prone_core:2.10.0")
+    errorprone(libs.errorprone)
 }
 
 tasks.test {
