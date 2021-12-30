@@ -22,12 +22,13 @@ repositories {
 
 dependencies {
 
-    implementation("org.apache.logging.log4j:log4j-api:2.14.1")
-    implementation("org.apache.logging.log4j:log4j-core:2.14.1")
+    implementation("org.apache.logging.log4j:log4j-api:2.17.0")
+    implementation("org.apache.logging.log4j:log4j-core:2.17.0")
 
+    // Ignore IntelliJ nagging, v2.x is incompatible
     implementation("com.pi4j:pi4j-core:1.4")
 
-    testImplementation("org.mockito:mockito-core:4.1.0")
+    testImplementation("org.mockito:mockito-core:4.2.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testImplementation("org.assertj:assertj-core:3.21.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
@@ -48,7 +49,7 @@ sonarqube {
 }
 
 jacoco {
-    toolVersion = "0.8.6"
+    toolVersion = "0.8.7"
 }
 
 tasks.jacocoTestReport {
