@@ -5,6 +5,7 @@ plugins {
     jacoco
     id("net.ltgt.errorprone")
     id("org.sonarqube")
+    id("com.autonomousapps.dependency-analysis")
 }
 
 java {
