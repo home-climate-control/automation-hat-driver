@@ -33,11 +33,12 @@ dependencies {
         }
     }
 
-    implementation(libs.log4j2.api)
+    testImplementation(libs.log4j2.api)
     implementation(libs.log4j2.core)
+
+    // VT: NOTE: This is not supposed to bleed beyond automation-hat-driver, the configuration is correct
     implementation(libs.pi4j)
 
-    testImplementation(libs.mockito)
     testImplementation(libs.junit.jupiter.api)
     testRuntimeOnly(libs.junit.jupiter.engine)
     testImplementation(libs.assertj)

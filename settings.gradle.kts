@@ -17,7 +17,6 @@ dependencyResolutionManagement {
             alias("log4j2-api").to("org.apache.logging.log4j","log4j-api").versionRef("log4jVersion")
             alias("log4j2-core").to("org.apache.logging.log4j", "log4j-core").versionRef("log4jVersion")
             alias("pi4j").to("com.pi4j:pi4j-core:1.4")
-            alias("mockito").to("org.mockito:mockito-core:4.2.0")
             alias("junit-jupiter-api").to("org.junit.jupiter","junit-jupiter-api").versionRef("junitVersion")
             alias("junit-jupiter-engine").to("org.junit.jupiter", "junit-jupiter-engine").versionRef("junitVersion")
             alias("assertj").to("org.assertj:assertj-core:3.21.0")
