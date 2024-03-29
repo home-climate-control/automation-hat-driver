@@ -1,0 +1,29 @@
+[versions]
+
+assertj = "3.25.3"
+errorprone = "2.26.1"
+gradle-dependency-analysis = "1.30.0"
+jacoco = "0.8.11"
+junit5 = "5.10.2"
+log4j = "2.20.0"
+mockito = "5.11.0"
+pi4j = "1.4"
+
+[libraries]
+
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+errorprone = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone" }
+junit5-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5" }
+junit5-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5" }
+junit5-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit5" }
+log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
+mockito = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+pi4j = { module = "com.pi4j:pi4j-core", version.ref = "pi4j" }
+
+[plugins]
+errorprone = { id = "net.ltgt.errorprone", version = "3.1.0" }
+git-properties = { id = "com.gorylenko.gradle-git-properties", version = "2.4.1" }
+gradle-dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "gradle-dependency-analysis" }
+gradle-doctor = { id = "com.osacky.doctor", version = "0.9.2" }
+gradle-versions = { id = "com.github.ben-manes.versions", version = "0.51.0"}
