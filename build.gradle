@@ -13,7 +13,7 @@ targetCompatibility = 11
 
 
 group = "com.homeclimatecontrol"
-version = "0.0.1-SNAPSHOT"
+version = "0.99"
 
 repositories {
     mavenCentral()
