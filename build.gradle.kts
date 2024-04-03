@@ -4,7 +4,12 @@ plugins {
     jacoco
     alias(libs.plugins.errorprone)
     alias(libs.plugins.sonarqube)
-    alias(libs.plugins.git.properties)
+
+    // If this project is included as a submodule or is in a Git worktree, this plugin chokes on non-existing ./.git
+    // and produces very long and annoying unsuppressable output.
+
+    // See https://github.com/n0mer/gradle-git-properties/issues/175 - will re-enable when fixed. Not worth it now.
+    // alias(libs.plugins.git.properties)
 
     alias(libs.plugins.gradle.versions)
     alias(libs.plugins.gradle.dependency.analysis)
