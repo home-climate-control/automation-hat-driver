@@ -8,7 +8,7 @@ junit5 = "5.10.2"
 log4j = "2.20.0"
 mockito = "5.11.0"
 pi4j = "1.4"
-sonarqube = "5.0.0.4638"
+sonarqube = "4.4.1.3373"
 
 [libraries]
 
