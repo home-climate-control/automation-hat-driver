@@ -34,12 +34,12 @@ jacoco {
 }
 
 tasks.compileJava {
-    options.release = 11
+    options.release = 17
     options.compilerArgs.add("--should-stop=ifError=FLOW")
 }
 
 tasks.compileTestJava {
-    options.release = 11
+    options.release = 17
     options.compilerArgs.add("--should-stop=ifError=FLOW")
 }
 
@@ -67,6 +67,7 @@ dependencies {
     testImplementation(libs.junit5.api)
 
     testRuntimeOnly(libs.junit5.engine)
+    testRuntimeOnly(libs.junit5.platform.launcher)
 
     errorprone(libs.errorprone)
 }
